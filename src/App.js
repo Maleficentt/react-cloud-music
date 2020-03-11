@@ -1,15 +1,20 @@
-import React from 'react';
-import { GlobalStyle } from './style';
-import { IconStyle } from './assets/iconfont/iconfont';
+import React from 'react'
+import { GlobalStyle } from './style'
+import { IconStyle } from './assets/iconfont/iconfont'
+import { renderRoutes } from 'react-router-config' //renderRoutes读取路由配置转化为Route标签
+import routes from './routes/index'
+import { HashRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store/index'
 
 function App() {
   return (
-    <div className="App">
+    <HashRouter>
       <GlobalStyle></GlobalStyle>
       <IconStyle></IconStyle>
-      <i className="iconfont">&#xe62b;</i>
-    </div>
-  );
+      { renderRoutes (routes)}
+    </HashRouter>
+  )
 }
 
-export default App;
+export default App
