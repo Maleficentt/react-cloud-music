@@ -9,11 +9,13 @@ import store from './store/index'
 
 function App() {
   return (
-    <HashRouter>
-      <GlobalStyle></GlobalStyle>
-      <IconStyle></IconStyle>
-      { renderRoutes (routes)}
-    </HashRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <GlobalStyle></GlobalStyle>
+        <IconStyle></IconStyle>
+        {renderRoutes(routes)}
+      </HashRouter>
+    </Provider>
   )
 }
 

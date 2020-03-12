@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect, useRef, useImperativeHandle, useContext } from 'react'
+import React, { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react'
 import PropTypes from 'prop-types'
 import BScroll from 'better-scroll'
 import styled from 'styled-components'
@@ -12,7 +12,7 @@ const ScrollContainer = styled.div`
 const Scroll = forwardRef((props, ref) => {
   const [bScroll, setBScroll] = useState()
   const scrollContaninerRef = useRef()
-  const { direction, click, refresh, pullUpLoading, pullDownLoading, bounceTop, bounceBottom } = props
+  const { direction, click, refresh, bounceTop, bounceBottom } = props
   const { pullUp, pullDown, onScroll } = props
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Scroll = forwardRef((props, ref) => {
     return () => {
       setBScroll(null)
     }
-  }, [])
+  }, [direction, click, bounceBottom, bounceTop])
 
   useEffect(() => {
     if (!bScroll || !onScroll) return
