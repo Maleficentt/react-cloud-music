@@ -30,7 +30,8 @@ const Scroll = forwardRef((props, ref) => {
     return () => {
       setBScroll(null)
     }
-  }, [direction, click, bounceBottom, bounceTop])
+    // eslint-disable-next-line
+  }, [])
 
   useEffect(() => {
     if (!bScroll || !onScroll) return
