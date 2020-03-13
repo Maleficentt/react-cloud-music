@@ -57,7 +57,6 @@ function Singers(props) {
 
   const renderSingerList = () => {
     const list = singerList ? singerList.toJS() : []
-    console.log(props)
     return (
       <List>
         {
